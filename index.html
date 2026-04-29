@@ -2,7 +2,9 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MEU PRATINHO - ALMOÇO</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -10,7 +12,8 @@
 <body>
 
 <header>
-  <h1>MEU PRATINHO - ALMOÇO</h1>
+  <h1>🍛 MEU PRATINHO</h1>
+  <p>Monte seu almoço</p>
 </header>
 
 <div class="container">
@@ -18,51 +21,93 @@
 <input type="text" id="nome" placeholder="Seu nome">
 <input type="text" id="endereco" placeholder="Seu endereço">
 
+<!-- GUARNIÇÃO -->
+<div class="card">
 <h2>Guarnição</h2>
 <select id="guarnicao">
   <option>Arroz branco</option>
-  <option>Baião de dois normal</option>
-  <option>Baião de dois cremoso</option>
+  <option>Baião de dois</option>
+  <option>Baião cremoso</option>
 </select>
-
-<h2>Misturas (até 2 grátis)</h2>
-<div class="options">
-  <label><input type="checkbox" class="mistura" value="Parmegiana de frango"> Parmegiana de frango</label>
-  <label><input type="checkbox" class="mistura" value="Porco no molho"> Porco no molho</label>
-  <label><input type="checkbox" class="mistura" value="Sobrecoxa Barbecue"> Sobrecoxa Barbecue</label>
-  <label><input type="checkbox" class="mistura" value="Ovo frito"> Ovo frito</label>
-  <label><input type="checkbox" class="mistura" value="Queijo frito"> Queijo frito</label>
-  <label><input type="checkbox" class="mistura" value="Calabresa frita"> Calabresa frita</label>
 </div>
 
-<h2>Adicionais (grátis)</h2>
-<div class="options">
-  <label><input type="checkbox" class="extra" value="Farofa"> Farofa</label>
-  <label><input type="checkbox" class="extra" value="Salada"> Salada</label>
-  <label><input type="checkbox" class="extra" value="Macarrão"> Macarrão</label>
-  <label><input type="checkbox" class="extra" value="Chips de macaxeira"> Chips de macaxeira</label>
-  <label><input type="checkbox" class="extra" value="Batata frita"> Batata frita</label>
-  <label><input type="checkbox" class="extra" value="Cuscuz"> Cuscuz</label>
+<!-- MISTURAS -->
+<div class="card">
+<h2>Escolha até 2 misturas</h2>
+
+<label class="check">
+<input type="checkbox" class="mistura" value="Parmegiana de frango">
+<span></span>Parmegiana de frango
+</label>
+
+<label class="check">
+<input type="checkbox" class="mistura" value="Porco no molho">
+<span></span>Porco no molho
+</label>
+
+<label class="check">
+<input type="checkbox" class="mistura" value="Sobrecoxa Barbecue">
+<span></span>Sobrecoxa Barbecue
+</label>
+
+<label class="check">
+<input type="checkbox" class="mistura" value="Ovo frito">
+<span></span>Ovo frito
+</label>
+
+<label class="check">
+<input type="checkbox" class="mistura" value="Queijo frito">
+<span></span>Queijo frito
+</label>
+
+<label class="check">
+<input type="checkbox" class="mistura" value="Calabresa frita">
+<span></span>Calabresa frita
+</label>
+
+<p class="obs">+ R$3,99 por mistura extra</p>
 </div>
 
-<h2>Refrigerante</h2>
-<div class="options">
-  <label><input type="checkbox" class="refri" value="Coca lata" data-preco="4.99"> Coca lata R$4,99</label>
-  <label><input type="checkbox" class="refri" value="Cajuína lata" data-preco="4.99"> Cajuína lata R$4,99</label>
-  <label><input type="checkbox" class="refri" value="Coca Zero lata" data-preco="4.99"> Coca Zero R$4,99</label>
-  <label><input type="checkbox" class="refri" value="Coca 1L" data-preco="9.99"> Coca 1L R$9,99</label>
-  <label><input type="checkbox" class="refri" value="Cajuína 1L" data-preco="9.99"> Cajuína 1L R$9,99</label>
-  <label><input type="checkbox" class="refri" value="Coca 2L" data-preco="14.99"> Coca 2L R$14,99</label>
+<!-- ADICIONAIS -->
+<div class="card">
+<h2>Adicionais grátis</h2>
+
+<label class="check"><input type="checkbox" class="extra" value="Farofa"><span></span>Farofa</label>
+<label class="check"><input type="checkbox" class="extra" value="Salada"><span></span>Salada</label>
+<label class="check"><input type="checkbox" class="extra" value="Macarrão"><span></span>Macarrão</label>
+<label class="check"><input type="checkbox" class="extra" value="Chips"><span></span>Chips</label>
+<label class="check"><input type="checkbox" class="extra" value="Batata frita"><span></span>Batata frita</label>
+<label class="check"><input type="checkbox" class="extra" value="Cuscuz"><span></span>Cuscuz</label>
+
 </div>
 
+<!-- REFRI -->
+<div class="card">
+<h2>Refrigerantes</h2>
+
+<label class="check"><input type="checkbox" class="refri" data-preco="4.99" value="Coca lata"><span></span>Coca lata R$4,99</label>
+<label class="check"><input type="checkbox" class="refri" data-preco="4.99" value="Cajuína lata"><span></span>Cajuína lata R$4,99</label>
+<label class="check"><input type="checkbox" class="refri" data-preco="9.99" value="Coca 1L"><span></span>Coca 1L R$9,99</label>
+<label class="check"><input type="checkbox" class="refri" data-preco="14.99" value="Coca 2L"><span></span>Coca 2L R$14,99</label>
+
+</div>
+
+<!-- PAGAMENTO -->
+<div class="card">
 <h2>Pagamento</h2>
 <select id="pagamento">
-  <option>Dinheiro</option>
-  <option>Pix</option>
-  <option>Cartão</option>
+<option>Dinheiro</option>
+<option>Pix</option>
+<option>Cartão</option>
 </select>
+</div>
 
-<button onclick="enviarPedido()">Finalizar Pedido</button>
+<!-- TOTAL FIXO -->
+<div class="total-box">
+Total: <span id="total">R$ 14,99</span>
+</div>
+
+<button onclick="finalizar()">Finalizar Pedido</button>
 
 </div>
 
