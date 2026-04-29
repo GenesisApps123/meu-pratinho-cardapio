@@ -87,3 +87,15 @@ button {
   font-size: 14px;
   color: #888;
 }
+.logo {
+  width: 140px;
+  display: block;
+  margin: 0 auto;
+}
+
+.subtitulo {
+  font-family: 'Baloo 2';
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+}
