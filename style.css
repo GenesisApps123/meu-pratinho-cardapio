@@ -1,3 +1,8 @@
+/* RESET IMPORTANTE (corrige o alinhamento) */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background: #c40000;
@@ -5,17 +10,22 @@ body {
   color: #333;
 }
 
+/* HEADER */
 header {
   text-align: center;
   color: white;
-  padding: 20px;
+  padding: 15px 10px;
   font-family: 'Baloo 2';
 }
 
+/* CONTAINER CENTRALIZADO (melhora MUITO no desktop) */
 .container {
   padding: 15px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
+/* CARDS */
 .card {
   background: white;
   padding: 15px;
@@ -23,11 +33,14 @@ header {
   border-radius: 18px;
 }
 
+/* TÍTULOS */
 h2 {
   font-family: 'Baloo 2';
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
+/* INPUTS AJUSTADOS */
 input, select {
   width: 100%;
   padding: 14px;
@@ -35,6 +48,7 @@ input, select {
   border-radius: 12px;
   border: none;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 /* CHECK BONITO */
@@ -43,6 +57,7 @@ input, select {
   align-items: center;
   margin: 10px 0;
   font-size: 17px;
+  cursor: pointer;
 }
 
 .check input {
@@ -55,10 +70,13 @@ input, select {
   border-radius: 50%;
   border: 2px solid #c40000;
   margin-right: 10px;
+  transition: 0.2s;
 }
 
+/* ANIMAÇÃO CHECK */
 .check input:checked + span {
   background: #c40000;
+  transform: scale(1.1);
 }
 
 /* TOTAL FIXO */
@@ -73,6 +91,7 @@ input, select {
   text-align: center;
 }
 
+/* BOTÃO */
 button {
   width: 100%;
   padding: 18px;
@@ -81,12 +100,22 @@ button {
   border-radius: 15px;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
+/* EFEITO AO CLICAR */
+button:active {
+  transform: scale(0.98);
+}
+
+/* OBS */
 .obs {
   font-size: 14px;
   color: #888;
 }
+
+/* LOGO RESPONSIVA */
 .logo {
   width: 30%;
   max-width: 120px;
@@ -95,9 +124,25 @@ button {
   margin: 0 auto;
 }
 
+/* SUBTÍTULO */
 .subtitulo {
   font-family: 'Baloo 2';
   font-size: 20px;
   color: white;
   margin-top: 10px;
+}
+
+/* MELHORIA EXTRA MOBILE */
+@media (max-width: 400px) {
+  h2 {
+    font-size: 18px;
+  }
+
+  .check {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 18px;
+  }
 }
