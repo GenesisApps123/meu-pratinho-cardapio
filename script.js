@@ -2,7 +2,34 @@ const base = 14.99;
 
 document.querySelectorAll("input").forEach(el => {
   el.addEventListener("change", calcular);
+  el.addEventListener("input", limparErro);
 });
+
+function vibrar() {
+  if (navigator.vibrate) {
+    navigator.vibrate(200);
+  }
+}
+
+function mostrarErro(input, mensagem, erroId) {
+  input.classList.add("input-erro");
+  document.getElementById(erroId).innerText = mensagem;
+  vibrar();
+}
+
+function limparErro(e) {
+  e.target.classList.remove("input-erro");
+
+  if (e.target.id === "nome") {
+    document.getElementById("erro-nome").innerText = "";
+  }
+
+  if (e.target.id === "endereco") {
+    document.getElementById("erro-endereco").innerText = "";
+  }
+
+  document.getElementById("erro-mistura").innerText = "";
+}
 
 function calcular() {
   let total = base;
@@ -23,16 +50,51 @@ function calcular() {
 
 function finalizar() {
 
-  let nome = document.getElementById("nome").value;
-  let endereco = document.getElementById("endereco").value;
+  let nomeInput = document.getElementById("nome");
+  let enderecoInput = document.getElementById("endereco");
+
+  let nome = nomeInput.value.trim();
+  let endereco = enderecoInput.value.trim();
   let guarnicao = document.getElementById("guarnicao").value;
   let pagamento = document.getElementById("pagamento").value;
 
-  let misturas = [...document.querySelectorAll(".mistura:checked")].map(e => e.value);
-  let extras = [...document.querySelectorAll(".extra:checked")].map(e => e.value);
-  let refris = [...document.querySelectorAll(".refri:checked")].map(e => e.value);
+  let misturasSelecionadas = document.querySelectorAll(".mistura:checked");
+  let extrasSelecionados = document.querySelectorAll(".extra:checked");
+  let refrisSelecionados = document.querySelectorAll(".refri:checked");
+
+  let misturas = [...misturasSelecionadas].map(e => e.value);
+  let extras = [...extrasSelecionados].map(e => e.value);
+  let refris = [...refrisSelecionados].map(e => e.value);
 
   let total = document.getElementById("total").innerText;
+
+  let valido = true;
+
+  // LIMPAR ERROS ANTES
+  document.querySelectorAll(".erro").forEach(e => e.innerText = "");
+  document.querySelectorAll("input").forEach(i => i.classList.remove("input-erro"));
+
+  // VALIDAÇÕES
+
+  if (nome === "") {
+    mostrarErro(nomeInput, "Informe seu nome", "erro-nome");
+    nomeInput.focus();
+    valido = false;
+  }
+
+  if (endereco === "") {
+    mostrarErro(enderecoInput, "Informe seu endereço", "erro-endereco");
+    if (valido) enderecoInput.focus();
+    valido = false;
+  }
+
+  if (misturasSelecionadas.length === 0) {
+    document.getElementById("erro-mistura").innerText = "Escolha pelo menos 1 mistura";
+    vibrar();
+    valido = false;
+  }
+
+  if (!valido) return;
 
   let mensagem =
 `🍛 *MEU PRATINHO - NOVO PEDIDO*
@@ -46,10 +108,10 @@ function finalizar() {
 ${misturas.join(", ")}
 
 ➕ Adicionais:
-${extras.join(", ")}
+${extras.length ? extras.join(", ") : "Nenhum"}
 
 🥤 Refrigerantes:
-${refris.join(", ")}
+${refris.length ? refris.join(", ") : "Nenhum"}
 
 💳 Pagamento: ${pagamento}
 
