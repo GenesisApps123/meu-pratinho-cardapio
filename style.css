@@ -132,6 +132,26 @@ button:active {
   margin-top: 10px;
 }
 
+.erro {
+  color: #ff4d4d;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+}
+
+.input-erro {
+  border: 2px solid #ff4d4d !important;
+  animation: tremer 0.2s 2;
+}
+
+@keyframes tremer {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
 /* MELHORIA EXTRA MOBILE */
 @media (max-width: 400px) {
   h2 {
