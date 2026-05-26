@@ -1,168 +1,241 @@
-/* RESET IMPORTANTE (corrige o alinhamento) */
-* {
-  box-sizing: border-box;
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  background: #c40000;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
+body{
+  background:#c40000;
+  font-family:'Poppins',sans-serif;
+  color:#333;
 }
 
 /* HEADER */
-header {
-  text-align: center;
-  color: white;
-  padding: 15px 10px;
-  font-family: 'Baloo 2';
+header{
+  text-align:center;
+  padding:20px 10px;
+  color:white;
 }
 
-/* CONTAINER CENTRALIZADO (melhora MUITO no desktop) */
-.container {
-  padding: 15px;
-  max-width: 500px;
-  margin: 0 auto;
+.logo{
+  width:30%;
+  max-width:120px;
+  min-width:80px;
+  display:block;
+  margin:auto;
+}
+
+.subtitulo{
+  margin-top:10px;
+  font-family:'Baloo 2',cursive;
+  font-size:22px;
+}
+
+/* CONTAINER */
+.container{
+  max-width:500px;
+  margin:auto;
+  padding:15px;
 }
 
 /* CARDS */
-.card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 18px;
+.card{
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  margin-bottom:15px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.08);
 }
 
-/* TÍTULOS */
-h2 {
-  font-family: 'Baloo 2';
-  font-size: 20px;
-  margin-bottom: 10px;
+/* TITULOS */
+h2{
+  font-family:'Baloo 2',cursive;
+  margin-bottom:12px;
+  font-size:22px;
 }
 
-/* INPUTS AJUSTADOS */
-input, select {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  border: none;
-  font-size: 16px;
-  box-sizing: border-box;
+/* INPUTS */
+input,
+select{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  margin-bottom:10px;
+  font-size:16px;
+  outline:none;
 }
 
-/* CHECK BONITO */
-.check {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-  font-size: 17px;
-  cursor: pointer;
+/* CHECKBOX NOVO */
+.check{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:12px 0;
+  cursor:pointer;
+  font-size:17px;
+  user-select:none;
 }
 
-.check input {
-  display: none;
+/* CHECKBOX CUSTOM */
+.check input[type="checkbox"]{
+
+  appearance:none;
+  -webkit-appearance:none;
+
+  width:22px;
+  height:22px;
+
+  border:2px solid #c40000;
+  border-radius:50%;
+
+  cursor:pointer;
+
+  transition:0.2s;
+
+  position:relative;
+
+  flex-shrink:0;
+
+  background:white;
 }
 
-.check span {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 2px solid #c40000;
-  margin-right: 10px;
-  transition: 0.2s;
+/* MARCADO */
+.check input[type="checkbox"]:checked{
+
+  background:#c40000;
+
+  transform:scale(1.1);
 }
 
-/* ANIMAÇÃO CHECK */
-.check input:checked + span {
-  background: #c40000;
-  transform: scale(1.1);
+/* BOLINHA INTERNA */
+.check input[type="checkbox"]:checked::after{
+
+  content:"";
+
+  width:8px;
+  height:8px;
+
+  background:white;
+
+  border-radius:50%;
+
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
 }
 
-/* TOTAL FIXO */
-.total-box {
-  position: sticky;
-  bottom: 0;
-  background: #fff;
-  padding: 15px;
-  font-size: 20px;
-  font-weight: bold;
-  border-top: 2px solid #eee;
-  text-align: center;
-}
-
-/* BOTÃO */
-button {
-  width: 100%;
-  padding: 18px;
-  background: #ffcc00;
-  border: none;
-  border-radius: 15px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-/* EFEITO AO CLICAR */
-button:active {
-  transform: scale(0.98);
+/* REMOVE SPAN ANTIGO */
+.check span{
+  display:none;
 }
 
 /* OBS */
-.obs {
-  font-size: 14px;
-  color: #888;
+.obs{
+  font-size:14px;
+  color:#777;
+  margin-top:8px;
 }
 
-/* LOGO RESPONSIVA */
-.logo {
-  width: 30%;
-  max-width: 120px;
-  min-width: 80px;
-  display: block;
-  margin: 0 auto;
+/* TOTAL */
+.total-box{
+  position:sticky;
+  bottom:0;
+  background:white;
+  padding:16px;
+  border-radius:18px 18px 0 0;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+  box-shadow:0 -3px 10px rgba(0,0,0,0.08);
+  margin-top:10px;
 }
 
-/* SUBTÍTULO */
-.subtitulo {
-  font-family: 'Baloo 2';
-  font-size: 20px;
-  color: white;
-  margin-top: 10px;
+/* BOTÃO */
+button{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:15px;
+  background:#ffcc00;
+  color:#222;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+  margin-top:12px;
 }
 
-.erro {
-  color: #ff4d4d;
-  font-size: 12px;
-  display: block;
-  margin-top: 5px;
+button:hover{
+  opacity:0.95;
 }
 
-.input-erro {
-  border: 2px solid #ff4d4d !important;
-  animation: tremer 0.2s 2;
+button:active{
+  transform:scale(0.98);
 }
 
-@keyframes tremer {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  50% { transform: translateX(4px); }
-  75% { transform: translateX(-4px); }
-  100% { transform: translateX(0); }
+/* ERROS */
+.erro{
+  color:#ffdddd;
+  font-size:13px;
+  display:block;
+  margin-bottom:8px;
 }
 
-/* MELHORIA EXTRA MOBILE */
-@media (max-width: 400px) {
-  h2 {
-    font-size: 18px;
+.input-erro{
+  border:2px solid #ff4d4d !important;
+  animation:tremer 0.2s 2;
+}
+
+/* ANIMAÇÃO */
+@keyframes tremer{
+
+  0%{
+    transform:translateX(0);
   }
 
-  .check {
-    font-size: 15px;
+  25%{
+    transform:translateX(-4px);
   }
 
-  button {
-    font-size: 18px;
+  50%{
+    transform:translateX(4px);
   }
+
+  75%{
+    transform:translateX(-4px);
+  }
+
+  100%{
+    transform:translateX(0);
+  }
+}
+
+/* RESPONSIVO */
+@media(max-width:500px){
+
+  .container{
+    padding:12px;
+  }
+
+  h2{
+    font-size:20px;
+  }
+
+  .check{
+    font-size:16px;
+  }
+
+  button{
+    font-size:18px;
+  }
+
+  .total-box{
+    font-size:20px;
+  }
+
 }
